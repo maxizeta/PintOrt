@@ -3,7 +3,7 @@
     <h1>Catalogo de fotos</h1>
     <ul>
         <li v-for="foto in fotos" :key="foto.id">
-         {{foto.id }} -  {{ foto.name }} - {{ foto.email }} -{{ foto.phone }}
+         {{foto}}
         </li>
     </ul>
 </template>
