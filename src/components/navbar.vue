@@ -1,4 +1,6 @@
 <template>
+      <h1>{{ msg }}</h1>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">app</a>
@@ -37,7 +39,7 @@ const logout = () => {
     router.push("/login")
 }
 const isAuthenticated = () => {
-  //  if localStorage.getItem("usuario") != null
+    return localStorage.getItem("usuario") != null
 }
 
 </script>

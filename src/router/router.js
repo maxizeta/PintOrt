@@ -1,7 +1,7 @@
 import {createRouter, createWebHistory} from 'vue-router'; 
 import menu from '../components/menu.vue'
 import login from '../components/login.vue';
-import navbar from '../components/navbar.vue';
+//import navbar from '../components/navbar.vue';
 import footer from '../components/footer.vue';
 
 const routes = [
@@ -11,20 +11,25 @@ const routes = [
       component: menu
     },
    
+    {
+      path: "/login",
+      name: "login",
+      component: login
+    },
   
     { path: '/fotos', name: 'fotos', component: () => import('../components/fotos.vue') },
         
-    { path: '/form', name: 'form', component: FormView },
-    { path: '/form/:id', component: FormView },
+    //{ path: '/form', name: 'form', component: FormView },
+    //{ path: '/form/:id', component: FormView },
     
     {
       path: '/login', name:'login',
       component: login  
     },
-    {
-        path: '/navbar', name:'navbar',
-        component: navbar 
-    },
+    // {
+    //     path: '/navbar', name:'navbar',
+    //     component: navbar 
+    // },
     {
         path: '/footer', name:'footer',
         component: footer 
