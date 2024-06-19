@@ -8,13 +8,16 @@
             <div class="collapse navbar-collapse" id="navbarnav">
                 <ul class="navbar-nav">
                     <li>
-                        <router-link class="nav-link" to="/menu">menu</router-link>
+                        <router-link class="nav-link" to="/">menu</router-link>
+                    </li>
+                    <li>
+                        <router-link class="nav-link" to="/registroDeUsuario">registrarse</router-link>
                     </li>
                     <li>
                         <router-link class="nav-link" to="/login">login</router-link>
                     </li>
                     <li>
-                        <router-link class="nav-link" to="/fotos">fotos</router-link>
+                        <router-link class="nav-link" to="/fotos" v-if="isAuthenticated">fotos</router-link>
                     </li>
                     <li>
                         <router-link class="nav-link" to="/footer">footer</router-link>
@@ -30,7 +33,11 @@
 import {useRouter} from "vue-router"
 
 const logout = () => {
+    localStorage.removeItem("usuario")
     router.push("/login")
+}
+const isAuthenticated = () => {
+    if localStorage.getItem("usuario") != null
 }
 
 </script>
