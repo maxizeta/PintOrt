@@ -1,11 +1,7 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
-<<<<<<< HEAD
-import Router from "./router/router.js"
-=======
 import Router from './router/router.js'
->>>>>>> origin/yami
 
 // Importar Bootstrap CSS y JS
 import 'bootstrap/dist/css/bootstrap.min.css';
