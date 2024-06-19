@@ -1,8 +1,8 @@
-import { createRouter, createWebHistory} from 'vue-router'; 
-import menu from './components/menu.vue';
-import login from './components/login.vue';
-import navbar from './components/navbar.vue';
-import footer from './components/footer.vue';
+import {createRouter, createWebHistory} from 'vue-router'; 
+import menu from '../components/menu.vue'
+import login from '../components/login.vue';
+import navbar from '../components/navbar.vue';
+import footer from '../components/footer.vue';
 
 const routes = [
     {
@@ -12,7 +12,7 @@ const routes = [
     },
    
   
-    { path: '/fotos', name: 'fotos', component: () => import('./components/fotos.vue') },
+    { path: '/fotos', name: 'fotos', component: () => import('../components/fotos.vue') },
         
     { path: '/form', name: 'form', component: FormView },
     { path: '/form/:id', component: FormView },
