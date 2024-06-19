@@ -37,7 +37,7 @@ const logout = () => {
     router.push("/login")
 }
 const isAuthenticated = () => {
-    if localStorage.getItem("usuario") != null
+  //  if localStorage.getItem("usuario") != null
 }
 
 </script>

@@ -9,16 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "pexels": "^1.4.0",
-    "vue": "^3.4.21"
-=======
     "vue": "^3.4.21",
     "vue-router": "^4.3.2",
     "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3"
->>>>>>> origin/yami
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
