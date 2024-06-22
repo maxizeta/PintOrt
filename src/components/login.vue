@@ -33,7 +33,7 @@ const login = () => {
     if (username.value === "admin" && password.value === "admin") {
         localStorage.setItem("user", JSON.stringify({role: "admin"}))
         router.push("/admin-report")
-    } else if (username.value === "user" && password.value === "user"){
+    } else if (username.value === "user" && password.value === "password"){
         localStorage.setItem("user", JSON.stringify({role: "user"}))
         router.push("/dashboard")
     }

@@ -1,29 +1,24 @@
 <script setup>
-import navbar from './components/navbar.vue'
+import Navbar from './components/navbar.vue'
 import router from './router/router.js'
-import footer from './components/footer.vue'
-
-
+import Footerr from './components/footer.vue'
 </script>
 
 <template>
-    <navbar/>
+    <Navbar />
     <router-view />
-
-    
+    <Footerr />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #ff1212;
+  color: #333;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+
+
+
+
 </style>

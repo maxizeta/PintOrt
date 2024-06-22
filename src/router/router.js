@@ -1,57 +1,52 @@
-import {createRouter, createWebHistory} from 'vue-router'; 
-import menu from '../components/menu.vue'
-import login from '../components/login.vue';
-//import navbar from '../components/navbar.vue';
-import footer from '../components/footer.vue';
+import { createRouter, createWebHistory } from 'vue-router';
+import Menu from '../components/menu.vue';
+import Footer from '../components/footer.vue';
+import Registro from '../components/registro.vue';
+import Login from '../components/login.vue';
+import Fotos from '../components/fotos.vue';
 
 const routes = [
-    {
-      path: '/',
-      name: 'menu',
-      component: menu
-    },
-   
-    {
-      path: "/login",
-      name: "login",
-      component: login
-    },
-  
-    { path: '/fotos', name: 'fotos', component: () => import('../components/fotos.vue') },
-        
-    //{ path: '/form', name: 'form', component: FormView },
-    //{ path: '/form/:id', component: FormView },
-    
-    {
-      path: '/login', name:'login',
-      component: login  
-    },
-    // {
-    //     path: '/navbar', name:'navbar',
-    //     component: navbar 
-    // },
-    {
-        path: '/footer', name:'footer',
-        component: footer 
-    }
+  {
+    path: '/',
+    name: 'menu',
+    component: Menu
+  },
+  {
+    path: "/registroDeUsuario",
+    name: "registro",
+    component: Registro
+  },
+  {
+    path: '/footer',
+    name: 'footer',
+    component: Footer
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login,
+    meta: { requiresAuth: false } // No requiere autenticación
+  },
+  {
+    path: '/fotos',
+    name: 'fotos',
+    component: Fotos,
+    meta: { requiresAuth: true } // Requiere autenticación
+  }
 ];
-  
-  const router = createRouter({
-    history: createWebHistory(),
-    routes,
-  });
-  
-  router.beforeEach((to, from, next) => {
-    const usuario = JSON.parse(localStorage.getItem('usuario'));
-    if(to.matched.some(record => record.meta.requiresAdmin)) {
-        if(usuario && usuario.role === 'admin') {
-            next();
-        } else {
-            next('/login');
-        }
-    }else {
-        next();
-    }
-  });
-  
-  export default router;
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+});
+
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = localStorage.getItem('user') !== null;
+  if (to.meta.requiresAuth && !isAuthenticated) {
+    next('/login'); // Redirecciona a /login si se intenta acceder a una ruta protegida sin autenticación
+  } else {
+    next(); // Continúa navegando normalmente
+  }
+});
+
+export default router;
