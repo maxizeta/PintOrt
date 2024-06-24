@@ -1,13 +1,13 @@
 <template>
     <div>
-        <h2 class="text-center">login</h2>
+        <h2 class="text-center">Login</h2>
         <form @submit.prevent="login" class="container">
             <div class="mb-3">
-                <label for="Username" class="form-label">ingrese su usuario</label>
+                <label for="Username" class="form-label">Ingrese su usuario</label>
                 <input type="text" class="form-control" id="Username" placeholder="Username" v-model="username" required>
             </div>
             <div class="mb-3">
-                <label for="Password" class="form-label">ingrese su contraseña</label>
+                <label for="Password" class="form-label">Ingrese su contraseña</label>
                 <input type="password" class="form-control" id="Password" placeholder="Password" v-model="password" required>
             </div>
             <div class="col-12">

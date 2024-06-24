@@ -36,7 +36,7 @@ const fotoMes = ref({
 const guardarFotoMes = async () => {
   try {
     await axios.post('https://6678dbb00bd4525056200974.mockapi.io/api/v1/fotos', fotoMes.value);
-    router.push('/');
+    router.push('/administrador');
   } catch (error) {
     console.error('Error al guardar');
   }

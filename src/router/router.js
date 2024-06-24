@@ -12,7 +12,8 @@ const routes = [
   {
     path: '/',
     name: 'menu',
-    component: Menu
+    component: Menu,
+    meta: { requiresAuth: true } 
   },
   {
     path: "/registroDeUsuario",
@@ -46,10 +47,14 @@ const routes = [
       component: NotAdmin },
 
 
-  { path: '/agregarFotoMes', name: 'agregarFotoMes',
-   component: AgregarFotoMes },
+  { path: '/agregarFotoMes', 
+    name: 'agregarFotoMes',
+   component: AgregarFotoMes,
+   meta: {requiresAuth: true, requiresAdmin: true},
+   },
+
    { path: '/eliminarFotoMes', name: 'eliminarFotoMes',
-    component: EliminarFotoMes },
+    component: EliminarFotoMes, meta: { requiresAuth: true, requiresAdmin: true},}
     
 ];
 

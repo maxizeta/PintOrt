@@ -16,9 +16,9 @@ const route = useRoute();
 const router = useRouter();
 
 onMounted(async () => {
-    const fotoId = await router.params.id;
+    const fotoId = route.params.id;
     try {
-        const response = await axios.get(`https://6678dbb00bd4525056200974.mockapi.io/api/v1/fotos/7`);
+        const response = await axios.get(`https://6678dbb00bd4525056200974.mockapi.io/api/v1/fotos/${fotoId}`);
         foto.value = response.data;
     } catch (error) {
         console.error('Error al obtener');
@@ -26,9 +26,9 @@ onMounted(async () => {
 });
 
 const eliminarFoto = async () => {
-    const fotoId = await router.params.id;
+    const fotoId = route.params.id;
     try {
-        await axios.delete(`https://6678dbb00bd4525056200974.mockapi.io/api/v1/fotos/7`);
+        await axios.delete(`https://6678dbb00bd4525056200974.mockapi.io/api/v1/fotos/${fotoId}`);
         console.log('Foto eliminada');
         router.push('/administrador');
     } catch (error) {
