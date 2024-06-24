@@ -11,7 +11,7 @@
                 <input type="password" class="form-control" id="Password" placeholder="Password" v-model="password" required>
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-primary">iniciar secion</button>
+                <button type="submit" class="btn btn-primary">iniciar sesión</button>
             </div>
         </form>
         <p v-if="errorMessage">{{ errorMessage }}
@@ -20,6 +20,7 @@
 </template>
 <script setup>
 
+import axios from "axios";
 import {ref} from "vue"
 import {useRouter} from "vue-router"
 
@@ -32,10 +33,11 @@ const router = useRouter()
 const login = () => {
     if (username.value === "admin" && password.value === "admin") {
         localStorage.setItem("user", JSON.stringify({role: "admin"}))
-        router.push("/admin-report")
-    } else if (username.value === "user" && password.value === "password"){
+        localStorage.setItem("isAuthenticated", 'true')
+        router.push("/administrador")
+    } else if (username.value === "user" && password.value === "user"){
         localStorage.setItem("user", JSON.stringify({role: "user"}))
-        router.push("/dashboard")
+        router.push("/fotos")
     }
     else {
         errorMessage.value = "datos incorrectos"

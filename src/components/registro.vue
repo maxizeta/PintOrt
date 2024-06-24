@@ -21,24 +21,24 @@ export default {
     const password = ref('');
     const router = useRouter();
 
-    const register = async () => {
-      if (username.value && email.value && password.value) {
-        const user = { role: username.value === 'admin' ? 'admin' : 'user' };
-        localStorage.setItem('user', JSON.stringify(user));
+    // const register = async () => {
+    //   if (username.value && email.value && password.value) {
+    //     const user = { role: username.value === 'admin' ? 'admin' : 'user' };
+    //     localStorage.setItem('user', JSON.stringify(user));
 
-        if (user.role === 'admin') {
-          router.push('/admin-report');
-        } else {
-          router.push('/dashboard');
-        }
-      }
-    };
+    //     if (user.role === 'admin') {
+    //       router.push('/admin-report');
+    //     } else {
+    //       router.push('/dashboard');
+    //     }
+    //   }
+    // };
 
     return {
       username,
       email,
       password,
-      register,
+      
     };
   },
 };

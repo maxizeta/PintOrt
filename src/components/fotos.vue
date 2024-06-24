@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <!-- <div>
     <h1>Catálogo de Fotos</h1>
     <div v-if="isAuthenticated">
       <ul>
@@ -10,6 +10,14 @@
       </ul>
     </div>
     <p v-else>Debes estar autenticado para ver las fotos.</p>
+  </div> -->
+  <div>
+    <h1>Catalogo de Fotos  </h1>
+    <div class="fotos-list">
+      <Cartafotos v-for="foto in fotos ":key="foto.id" :foto="foto"/>
+
+    </div>
+  
   </div>
 </template>
 
@@ -17,6 +25,9 @@
 import { ref, onMounted } from 'vue';
 import axios from "axios";
 import { useRouter } from 'vue-router';
+import Cartafotos from './cartafotos.vue';
+
+
 
 const fotos = ref([]);
 const router = useRouter();
@@ -33,6 +44,8 @@ const fetchFotos = async () => {
   } catch (error) {
     console.error('Error fetching photos:', error);
   }
+
+ ;
 };
 
 onMounted(() => {
@@ -45,10 +58,12 @@ onMounted(() => {
     router.push('/login');
   }
 });
+
+
 </script>
 
-<style>
-ul {
+<style scoped>
+/* ul {
   list-style-type: none;
   padding: 0;
 }
@@ -61,5 +76,13 @@ img {
   width: 300px;
   height: auto;
   border-radius: 8px;
+} */
+
+.fotos-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 16px;
 }
+
 </style>

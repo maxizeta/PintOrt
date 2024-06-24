@@ -4,7 +4,10 @@ import Footer from '../components/footer.vue';
 import Registro from '../components/registro.vue';
 import Login from '../components/login.vue';
 import Fotos from '../components/fotos.vue';
-
+import Administrador from '../components/administrador.vue';
+import NotAdmin from '../components/notAdmin.vue';
+import AgregarFotoMes from '../components/AgregarFotoMes.vue';
+import EliminarFotoMes from '../components/EliminarFotoMes.vue';
 const routes = [
   {
     path: '/',
@@ -32,7 +35,22 @@ const routes = [
     name: 'fotos',
     component: Fotos,
     meta: { requiresAuth: true } // Requiere autenticación
-  }
+  },
+
+  {
+    path: '/administrador', name: 'administrador',
+    component: Administrador, meta: { requiresAdmin: true},
+  },
+
+   { path: '/notAdmin', name: 'notAdmin',
+      component: NotAdmin },
+
+
+  { path: '/agregarFotoMes', name: 'agregarFotoMes',
+   component: AgregarFotoMes },
+   { path: '/eliminarFotoMes', name: 'eliminarFotoMes',
+    component: EliminarFotoMes },
+    
 ];
 
 const router = createRouter({
@@ -41,12 +59,27 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const isAuthenticated = localStorage.getItem('user') !== null;
-  if (to.meta.requiresAuth && !isAuthenticated) {
-    next('/login'); // Redirecciona a /login si se intenta acceder a una ruta protegida sin autenticación
-  } else {
-    next(); // Continúa navegando normalmente
+  const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+  
+  console.log('EL TO', to);
+  if(to.meta.requiereAuth && !isAuthenticated){
+      next('/login')
   }
-});
+  else{
+      next();
+  }
+})
+router.beforeEach((to, from, next) => {
+  const user = JSON.parse(localStorage.getItem('user')); //para obtener que el usuario esta loggeado y convertir el usuario en objeto
+  if(to.matched.some(record => record.meta.requiresAdmin)){
+      if(user && user.role === 'admin'){
+          next(); // para continuar navegacion
+      } else {
+          next('/notAdmin');
+      }
+  } else {
+      next();
+  }
 
+  });
 export default router;
