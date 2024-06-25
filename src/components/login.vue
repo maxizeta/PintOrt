@@ -11,7 +11,7 @@
                 <input type="password" class="form-control" id="Password" placeholder="Password" v-model="password" required>
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-primary">iniciar sesión</button>
+                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
             </div>
         </form>
         <p v-if="errorMessage">{{ errorMessage }}

@@ -37,7 +37,7 @@ const fotoMes = ref({
 const editarFoto = async () => {
   const fotoId = route.params.id;
     try {
-        await axios.put(`https://6678dbb00bd4525056200974.mockapi.io/api/v1/fotos/7`, foto.value);
+        await axios.put(`https://6678dbb00bd4525056200974.mockapi.io/api/v1/fotos/${fotoId}`, foto.value);
         router.push('/administrador');
     } catch (error) {
       // console.log('params: ',fotoId)
