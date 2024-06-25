@@ -10,23 +10,24 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="nav-list">
             <li class="nav-item">
-              <router-link class="nav-link" to="/">Fotos del mes</router-link>
+              <router-link class="nav-link" to="/fotos">Fotos</router-link>
             </li>
-            <!-- <li class="nav-item">
-              <router-link class="nav-link" to="/registro">registro</router-link>
-            </li> -->
             <li class="nav-item">
-              <router-link class="nav-link" to="/agregarFotoMes">Agregar Foto</router-link>
+              <router-link class="nav-link" to="/">Fotos del mes</router-link>
             </li>
             <li class="nav-item">
               <router-link class="nav-link" to="/login">Iniciar sesión</router-link>
             </li>
+            <!-- <li class="nav-item">
+              <router-link class="nav-link" to="/registro">registro</router-link>
+            </li> -->
+            
             <li class="nav-item">
-              <router-link class="nav-link" to="/fotos">Fotos</router-link>
+              <router-link class="nav-link" to="/agregarFotoMes">Agregar Foto</router-link>
             </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/administrador">Admin</router-link>
-            </li>
+            
+            
+            
             <li class="nav-item" v-if="!isAuthenticated">
                 <button @click="logout" class="nav-link" style="background: none; border: none; cursor: pointer;">Salir</button>
             </li>
