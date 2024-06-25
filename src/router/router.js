@@ -8,6 +8,8 @@ import Administrador from '../components/administrador.vue';
 import NotAdmin from '../components/notAdmin.vue';
 import AgregarFotoMes from '../components/AgregarFotoMes.vue';
 import EliminarFotoMes from '../components/EliminarFotoMes.vue';
+import EditarFotoMes from '../components/editarFotoMes.vue';
+
 const routes = [
   {
     path: '/',
@@ -54,7 +56,12 @@ const routes = [
    },
 
    { path: '/eliminarFotoMes', name: 'eliminarFotoMes',
-    component: EliminarFotoMes, meta: { requiresAuth: true, requiresAdmin: true},}
+    component: EliminarFotoMes, meta: { requiresAuth: true, requiresAdmin: true},},
+
+
+    { path: '/editarFotoMes', name: 'editarFotoMes',
+      component: EditarFotoMes, meta: { requiresAuth: true, requiresAdmin: true},}
+    
     
 ];
 

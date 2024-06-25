@@ -21,7 +21,9 @@
             <!-- <li class="nav-item">
               <router-link class="nav-link" to="/registro">registro</router-link>
             </li> -->
-            
+            <li class="nav-item">
+              <router-link class="nav-link" to="/adminsitrador">Administrador</router-link>
+            </li>
             <li class="nav-item">
               <router-link class="nav-link" to="/agregarFotoMes">Agregar Foto</router-link>
             </li>
